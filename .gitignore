@@ -1,0 +1,7 @@
+*.iml
+*.tgz
+*.npmrc
+
+.idea/
+node/
+node_modules/
