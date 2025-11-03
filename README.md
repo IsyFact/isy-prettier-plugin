@@ -1,49 +1,47 @@
 # @isyfact/prettier-plugin 
 
-Shareable Prettier config for IsyFact projects.
+Das Paket @isyfact/prettier-plugin enthält eine einheitliche Konfiguration zum Formatieren von TypeScript-Projekten in der IsyFact.
 
-## Install
+## Steckbrief
+Das isy-prettier-plugin (Repository: https://github.com/IsyFact/isy-prettier-plugin) ist ein Prettier-Plugin, 
+das IsyFact-spezifisch Formatierungsregeln und Konventionen zentralisiert und dadurch eine einheitliche Codebasis sicherstellt. 
+Es erweitert bzw. ergänzt Prettier um vordefinierte Regeln und Presets, mit denen projektspezifische Stilvorgaben automatisch angewendet werden können.
 
-Add this package and Prettier to your project:
+## Getting Started
+
+### Installation der NPM-Pakete
+
+Füge das NPM-Paket zu deinem Projekt hinzu:
 
 ```bash
 npm install --save-dev prettier @isyfact/prettier-plugin
 ```
-> Note: `prettier` is a peer dependency of this package — the consuming project must install a compatible Prettier version.
+> Hinweis: `Prettier` ist eine peer-dependency — Das Typescript-Projekt muss eine kompatible `Prettier` Version (> v3) installiert haben.
 
-## Usage
+### Verwendung im Typescript-Projekt
 
-Option A — package.json
+Die Integration der IsyFact Prettier-Konfiguration kann auf unterschiedliche Weise erfolgen:
+
+Option A — In der package.json
 ```json
 {
   "prettier": "@isyfact/prettier-plugin"
 }
 ```
 
-Option B — .prettierrc.js
+Option B — Erstellen Sie eine Datei mit dem Namen .prettierrc.js und fügen Sie den folgenden Abschnitt hinzu:
 ```js
 module.exports = require('@isyfact/prettier-plugin');
 ```
 
-## CI / checks
-
-Add a script to package.json of consuming projects:
+### Ausführung des Prettier-Checks
+Füge das Script zur package.json hinzu:
 ```json
 {
   "scripts": {
-    "format": "prettier-isyfact --write .",
-    "format:check": "prettier-isyfact --check ."
+    "format": "prettier --write --ignore-path node_modules/@isyfact/prettier-plugin/.prettierignore .",
+    "format:check": "prettier --check --ignore-path node_modules/@isyfact/prettier-plugin/.prettierignore ."
   }
 }
 ```
-The `prettier-isyfact` wrapper injects the package's default `.prettierignore` (node_modules/@isyfact/prettier-plugin/.prettierignore) unless you explicitly pass your own `--ignore-path`. 
-
-If you prefer not to use the wrapper, you can reference the ignore file directly in your scripts:
-```json
-{
-  "scripts": {
-    "format": "prettier --write --ignore-path <your-path>/.prettierignore .",
-    "format:check": "prettier --check --ignore-path <your-path>/.prettierignore ."
-  }
-}
-```
+> Hinweis: Dieses Skript verwendet die Standardkonfiguration der `.prettierignore` des isy-prettier-plugins. Wenn Sie Ihre eigene `.prettierignore` verwenden möchten, können Sie das Argument `--ignore-path` weglassen.
