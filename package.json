@@ -1,0 +1,31 @@
+{
+  "name": "@isyfact/prettier-plugin",
+  "version": "1.0.0",
+  "description": "Prettier typescript configuration for the IsyFact software factory.",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "README.md",
+    ".prettierignore"
+  ],
+  "scripts": {
+    "pack": "npm pack"
+  },
+  "author": {
+    "name": "IsyFact-Team",
+    "email": "isyfact@bva.bund.de",
+    "url": "https://www.bva.bund.de"
+  },
+  "license": " Apache-2.0",
+  "homepage": "http://isyfact.de",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18.18"
+  },
+  "peerDependencies": {
+    "prettier": "^3"
+  },
+  "devDependencies": {
+    "prettier": "3.6.2"
+  }
+}
